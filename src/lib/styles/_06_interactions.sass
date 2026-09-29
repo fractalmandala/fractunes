@@ -1,0 +1,53 @@
+button
+	cursor: pointer
+	transition: transform var(--motionin1) color var(--motionin1)
+	color: var(--text-secondary)
+	&:active
+		transform: scale(1.05)
+	&[data-variant="small"]
+		background: var(--bg-button)
+		font-size: var(--text-md)
+		display: flex
+		align-items: center
+		height: 24px
+		padding: 0 var(--space-sm)
+		border: 1px solid var(--border)
+		color: var(--text-primary)
+		&:hover
+			border: 1px solid var(--border-strong)
+		&.active
+			background: var(--bg-active)
+	&[data-shape="modern"]
+		border-radius: var(--radius-sm)
+	&[data-variant="icon"]
+		background: transparent
+		height: 24px
+		width: 24px
+		border: none
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: background var(--motionout1), color var(--motionout1)
+		&:hover
+			background: var(--bg-hover)
+			color: var(--text-secondary)
+	&[data-variant="icon-mini"]
+		background: none
+		height: 16px
+		width: 16px
+		border: none
+		display: flex
+		align-items: center
+		justify-content: center
+		color: var(--text-muted)
+		transition: color var(--motionout1)
+		&:hover
+			color: var(--text-secondary)
+	&[data-variant="link"]
+		background: none
+		padding: 0
+		border: none
+		&:hover
+			color: var(--theme-color)
+	&[data-active="dim"]
+		color: var(--text-muted)

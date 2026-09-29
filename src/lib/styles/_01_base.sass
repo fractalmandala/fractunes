@@ -1,0 +1,67 @@
+*, *::before, *::after
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+html, body
+	width: 100%
+	min-height: 100vh
+	background-color: var(--bg)
+	color: var(--text-secondary)
+	font-family: 'Lil Grotesk', sans-serif
+	user-select: none
+	-webkit-user-select: none
+	overflow-x: hidden
+	overflow-y: auto
+	-webkit-font-smoothing: antialiased
+
+.app-name
+	font-family: var(--font-mono)
+	text-transform: uppercase
+	letter-spacing: 0.2rem
+
+button, span, a
+	font-family: inherit
+
+.relative
+	position: relative
+
+.absolute
+	position: absolute
+
+.cursor-pointer
+	cursor: pointer
+
+.cursor-crosshair
+	cursor: crosshair
+
+.outline-none
+	outline: none
+
+a
+	color: var(--theme-color)
+	text-decoration: none
+
+.app-header a
+	color: var(--text-secondary)
+
+.logobox img
+	height: 48px
+	width: 48px
+
+.sidebar-footer
+	height: 64px
+	margin-top: auto
+	.motif-g
+		transition: opacity 350ms ease
+	&:hover
+		.motif-g
+			opacity: 0
+
+.logobox
+	position: relative
+	width: 64px
+	img
+		position: absolute
+		top: 8px
+		left: 0

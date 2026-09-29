@@ -1,0 +1,139 @@
+.box
+	display: flex
+	flex-direction: column
+	&.xcenter
+		align-items: center
+		text-align: center
+	&.xleft
+		align-items: flex-start
+		text-align: left
+	&.xright
+		align-items: flex-end
+		text-align: right
+	&.ycenter
+		justify-content: center
+	&.ytop
+		justify-content: flex-start
+	&.ybot
+		justify-content: flex-end
+	&.ybetween
+		justify-content: space-between
+	&.yevenly
+		justify-content: space-evenly
+	&.yaround
+		justify-content: space-around
+
+.row
+	display: flex
+	flex-direction: row
+	&.xleft
+		justify-content: flex-start
+	&.xcenter
+		justify-content: center
+	&.xright
+		justify-content: flex-end
+	&.xbetween
+		justify-content: space-between
+	&.xevenly
+		justify-content: space-evenly
+	&.xaround
+		justify-content: space-around
+	&.ycenter
+		align-items: center
+	&.ytop
+		align-items: flex-start
+	&.ybot
+		align-items: flex-end
+
+.grid
+	display: grid
+	&.center
+		place-items: center
+	&.xcenter
+		justify-items: center
+		text-align: center
+	&.xleft
+		justify-items: start
+		text-align: left
+	&.xright
+		justify-items: end
+		text-align: right
+	&.xstretch
+		justify-items: stretch
+	&.ycenter
+		align-items: center
+	&.ytop
+		align-items: start
+	&.ybot
+		align-items: end
+	&.ystretch
+		align-items: stretch
+	&.xbetween
+		justify-content: space-between
+	&.xevenly
+		justify-content: space-evenly
+	&.xaround
+		justify-content: space-around
+	&.ybetween
+		align-content: space-between
+	&.yevenly
+		align-content: space-evenly
+	&.yaround
+		align-content: space-around
+
+.grid-2
+	display: grid
+	grid-template-columns: repeat(1, minmax(0, 1fr))
+	@media (min-width: 1025px)
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+
+.grid-3
+	display: grid
+	grid-template-columns: repeat(1, minmax(0, 1fr))
+	@media (min-width: 1025px)
+		grid-template-columns: repeat(3, minmax(0, 1fr))
+
+.wrap
+	flex-wrap: wrap
+
+.grow
+	flex: 1 1 0%
+
+.shrink-0
+	flex-shrink: 0
+
+.relative
+	position: relative
+.absolute
+	position: absolute
+.fixed
+	position: fixed
+.sticky
+	position: sticky
+
+.svg-container
+	height: 128px
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	margin-block: auto
+
+.buttons-row
+	display: flex
+	flex-direction: row
+	background: var(--bg-raised)
+	padding: var(--space-sm)
+	border-radius: var(--radius-md)
+	border: 1px solid var(--theme-color-dim)
+	gap: var(--space-xs)
+
+.drawer-draggable
+	cursor: grab
+	border: 1px solid var(--border)
+	background: var(--card-bg)
+	box-shadow: 0px 0px 1px rgba(0,0,0,0.8), -1px -1px 0 rgba(0,0,0,0.5) inset
+	transition: box-shadow var(--motionin3) color var(--motionout3)
+	&:hover
+		box-shadow: 2px 1px 4px rgba(0,0,0,0.8), -2px -2px 1px rgba(0,0,0,0.5) inset
+		color: var(--text-primary)

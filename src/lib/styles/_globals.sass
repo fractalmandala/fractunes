@@ -1,0 +1,112 @@
+svg
+	display: block
+	box-sizing: border-box
+
+canvas
+	display: block
+	box-sizing: border-box
+
+.fader-track
+	background: var(--fader-bg)
+	width: 2px
+	height: 56px
+	position: relative
+	border-radius: 1px
+
+.fader-thumb
+	width: 14px
+	height: 2px
+	background: var(--theme-color)
+	position: absolute
+	left: -6px
+	cursor: ns-resize
+	border-radius: 1px
+	box-shadow: 0 0 6px var(--theme-color-glow)
+
+.timeline-track-wrap
+	height: 64px
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	position: relative
+	margin-top: auto
+	margin-bottom: auto
+	background: var(--bg-sunken)
+	border-radius: var(--radius-md)
+	border: 1px solid var(--border)
+	overflow: hidden
+
+#masterTimelineCanvas
+	width: 100%
+	height: 100%
+
+#playBtn
+	position: absolute
+	width: 44px
+	height: 44px
+	border-radius: var(--radius-full)
+	background: var(--bg-button)
+	border: 1px solid var(--border)
+	color: var(--text-primary)
+	display: flex
+	align-items: center
+	justify-content: center
+	font-size: var(--text-md)
+	cursor: pointer
+	transition: all var(--speed1) ease
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6)
+	outline: none
+	&:hover
+		border-color: var(--theme-color)
+		color: var(--theme-color)
+		transform: scale(1.05)
+	&:active
+		transform: scale(0.95)
+
+.seq-pad
+	height: 28px
+	border-radius: var(--radius-sm)
+	background: var(--card-bg)
+	border: 1px solid var(--border)
+	display: flex
+	align-items: center
+	justify-content: center
+	cursor: pointer
+	transition: all var(--speed1) ease
+	box-sizing: border-box
+	&:hover
+		border-color: var(--border-strong)
+	&.is-downbeat
+		border-color: var(--border-strong)
+	&.active
+		background: var(--bg-active)
+		border-color: var(--theme-color-sub)
+	&.current
+		border-color: var(--text-primary)
+		box-shadow: 0 0 8px rgba(255, 255, 255, 0.4)
+		transform: scale(1.04)
+
+.seq-dot
+	width: 5px
+	height: 5px
+	border-radius: var(--radius-full)
+	background: var(--border-strong)
+	transition: background var(--speed1) ease, box-shadow var(--speed1) ease
+
+.seq-pad.active .seq-dot
+	background-color: var(--theme-color)
+	box-shadow: 0 0 6px var(--theme-color-glow)
+
+#presetSelect
+	background-color: var(--bg-raised)
+	color: var(--text-secondary)
+	border: 1px solid var(--border)
+	border-radius: var(--radius-sm)
+	padding: 3px 12px
+	font-size: var(--text-xs)
+	outline: none
+	cursor: pointer
+	transition: border-color var(--speed1) ease
+	&:hover
+		border-color: var(--border-strong)
