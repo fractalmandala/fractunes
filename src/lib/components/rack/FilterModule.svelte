@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
 
   let canvasEl: HTMLCanvasElement | null = $state(null);
@@ -116,9 +115,8 @@
   });
 </script>
 
-<PrefittedBox span="is-3-wide">
-  <Head title="Filter Strip" hasDot={true}/>
-
+<div class="module-box">
+<Head title="Filter Strip" hasDot={true}/>
   <div class="svg-container relative">
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <canvas
@@ -130,9 +128,8 @@
       onmousedown={onMouseDown}
     ></canvas>
   </div>
-
-  <div class="one-shelf bt pt-sm">
-    <div class="is-3-wide box">
+  <div class="row wrap xevenly gap-sm bt pt-sm">
+    <div class="box">
       <div class="text-secondary text-xs">Cutoff</div>
       <ParamDrag
         bind:value={synthStore.filterCutoff}
@@ -148,8 +145,7 @@
         }}
       />
     </div>
-
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Res</div>
       <ParamDrag
         bind:value={synthStore.filterRes}
@@ -164,8 +160,7 @@
         }}
       />
     </div>
-
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Decay</div>
       <ParamDrag
         bind:value={synthStore.filterDecay}
@@ -179,8 +174,7 @@
         }}
       />
     </div>
-
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Pitch</div>
       <ParamDrag
         bind:value={synthStore.filterPitch}
@@ -194,8 +188,7 @@
         }}
       />
     </div>
-
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Slope</div>
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -207,7 +200,7 @@
       </div>
     </div>
 
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Tone</div>
       <ParamDrag
         bind:value={synthStore.filterTone}
@@ -222,7 +215,7 @@
       />
     </div>
 
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Scale</div>
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -234,7 +227,7 @@
       </div>
     </div>
 
-    <div class="is-3-wide box">
+    <div class="box">
       <div class="text-secondary text-xs">Wet</div>
       <ParamDrag
         bind:value={synthStore.filterWet}
@@ -249,4 +242,4 @@
       />
     </div>
   </div>
-</PrefittedBox>
+</div>

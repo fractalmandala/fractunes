@@ -3,6 +3,7 @@
 	import { motion, useReducedMotion } from '@humanspeak/svelte-motion';
 	import { SPRING_PANEL, EASE_OUT } from '$lib/stores/ease.js';
 	import Panelleft from '$lib/icons/panelleft.svelte';
+	import IconHome from '$lib/icons/home.svelte'
 	import Sidebar from '$lib/components/ui/Sidebar.svelte';
 	import Settings from '$lib/components/ui/SettingsModal.svelte'
 	import { registryItems } from '$lib/data/itemsRegistry';
@@ -18,6 +19,9 @@
 	import IconWavetable from '$lib/icons/surface/wavetable.svelte';
 	import IconReverb from '$lib/icons/surface/reverb.svelte'
 	import Sequencer from '$lib/icons/surface/sequencer.svelte';
+	import IconReset from '$lib/icons/resetlayout.svelte';
+	import { layoutState } from '$lib/stores/layoutState.svelte';
+	import { shortcutManager } from '$lib/stores/shortcuts.svelte';
 
 	const STORAGE_KEY = 'fractunes:drawer-open';
 
@@ -44,6 +48,18 @@
 	function toggleSettings() {
 		settingsOpen = !settingsOpen;
 	}
+
+	$effect(() => {
+		const unregDrawer = shortcutManager.register('toggle_drawer', toggleDrawer);
+		const unregSettings = shortcutManager.register('toggle_settings', toggleSettings);
+		const unregReset = shortcutManager.register('reset_layout', () => layoutState.resetLayout());
+
+		return () => {
+			unregDrawer();
+			unregSettings();
+			unregReset();
+		};
+	});
 </script>
 
 <svelte:head>
@@ -52,6 +68,8 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<title>Fractunes</title>
 </svelte:head>
+
+<svelte:window onkeydown={shortcutManager.handleKeyDown} />
 
 <div class="app-viewport">
 	<Sidebar bind:open={drawerOpen} onSettingsClick={toggleSettings}>
@@ -91,7 +109,11 @@
 			</div>
 			<div class="drawer-draggable row gap-xs ycenter xcenter pad-xs">
 				<IconModulator />
-				<span class="text-sm">Modulator</span>
+				<span class="text-sm">Mod A</span>
+			</div>
+			<div class="drawer-draggable row gap-xs ycenter xcenter pad-xs">
+				<IconModulator />
+				<span class="text-sm">Mod B</span>
 			</div>
 				</div>
 			</div>
@@ -130,15 +152,31 @@
 			transition={$reduce ? { duration: 0.12, ease: EASE_OUT } : SPRING_PANEL}
 		>
 			<div class="row gap-bs ycenter">
-				<button data-variant="icon-mini" onclick={() => toggleDrawer()} aria-label="Toggle sidebar">
+				<button
+					type="button"
+					data-variant="icon-mini"
+					onclick={() => toggleDrawer()}
+					title="Toggle sidebar (⌘B)"
+					aria-label="Toggle sidebar (⌘B)"
+				>
 					<Panelleft />
 				</button>
 				<span class="app-name text-sm text-muted">fractunes</span>
 			</div>
 			<div class="row gap-bs ycenter">
-				<a class="text-xs" href="/backgrounds">Backgrounds</a>
-				<a class="text-xs" href="/trellis">Trellis</a>
-				<a class="text-xs" href="/">Plate</a>
+				<div class="row gap-md ycenter">
+					<button
+						type="button"
+						data-variant="icon-mini"
+						data-active={layoutState.isAltered ? 'full' : undefined}
+						onclick={() => layoutState.resetLayout()}
+						title={layoutState.isAltered ? 'Reset Rack Layout (⌘R)' : 'Default Rack Layout'}
+						aria-label="Reset Rack Layout (⌘R)"
+					>
+						<IconReset />
+					</button>
+					<a class="icon-mini" href="/"><IconHome /></a>
+				</div>
 			</div>
 		</motion.header>
 

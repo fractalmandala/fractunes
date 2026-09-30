@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
+	import HitOne from '$lib/icons/tile/hitone.svelte'
 
   let canvasEl: HTMLCanvasElement | null = $state(null);
   let dragging = false;
@@ -134,9 +134,9 @@
   });
 </script>
 
-<PrefittedBox span="is-3-wide">
-  <Head title="Psytrance Kick" hasDot={true}>
-    <button id="testKickBtn" onclick={triggerKick}>Trigger</button>
+<div class="module-box">
+<Head title="Psytrance Kick" hasDot={true}>
+    <button type="button" data-variant="icon-mini" data-shape="modern" onclick={triggerKick}><HitOne/></button>
   </Head>
 
   <div class="svg-container relative">
@@ -215,4 +215,4 @@
       />
     </div>
   </div>
-</PrefittedBox>
+</div>

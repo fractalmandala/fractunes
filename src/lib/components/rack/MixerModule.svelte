@@ -1,7 +1,6 @@
 <script lang="ts">
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
 
   const tracks: Array<"kick" | "bass" | "lead" | "hats" | "master"> = [
@@ -45,12 +44,12 @@
   }
 </script>
 
-<PrefittedBox span="is-3-wide">
-  <Head title="Mixer" hasDot={true}/>
+<div class="module-box">
+<Head title="Mixer" hasDot={true}/>
 
-  <div class="row xbetween ybot px-3 py-1 my-auto">
+  <div class="svg-container">
     {#each tracks as tr}
-      <div class="box xcenter gap-1.5">
+      <div class="box xcenter">
         <!-- svelte-ignore a11y_click_events_have_key_events -->
         <!-- svelte-ignore a11y_no_static_element_interactions -->
         <span
@@ -68,7 +67,7 @@
           onmousedown={(e) => handleFaderDown(tr, e)}
         >
           <div
-            class="fader-thumb"
+            class="fader-thumb hfull"
             style:bottom="{Math.round(synthStore.volumes[tr] * 100)}%"
             style:opacity={synthStore.muted[tr] ? "0.2" : "1.0"}
           ></div>
@@ -114,4 +113,4 @@
       Lead: {synthStore.leadEnabled ? "ON" : "OFF"}
     </button>
   </div>
-</PrefittedBox>
+</div>

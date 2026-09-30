@@ -51,3 +51,31 @@ button
 			color: var(--theme-color)
 	&[data-active="dim"]
 		color: var(--text-muted)
+	&[data-active="full"]
+		color: var(--text-primary)
+
+a.icon-mini
+	background: none
+	height: 16px
+	width: 16px
+	border: none
+	display: flex
+	align-items: center
+	justify-content: center
+	color: var(--text-muted)
+	transition: color var(--motionout1)
+	&:hover
+		color: var(--text-secondary)
+
+
+a.main-nav
+	font-family: var(--font-mono)
+	font-size: var(--text-sm)
+	text-transform: uppercase
+	color: var(--text-muted)
+	border-right: 1px solid var(--border-strong)
+	padding-right: var(--space-bs)
+	letter-spacing: 0.04rem
+	transition: color var(--motionout1)
+	&:hover
+		color: var(--text-secondary)

@@ -2,8 +2,9 @@
   import { onMount } from "svelte";
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
+	import HitOne from '$lib/icons/tile/hitone.svelte'
+	import Hittwo from "$lib/icons/tile/hittwo.svelte";
 
   let canvasEl: HTMLCanvasElement | null = $state(null);
 
@@ -59,10 +60,10 @@
   });
 </script>
 
-<PrefittedBox span="is-3-wide">
-  <Head title="Metallic Hats" hasDot={true}>
-    <button type="button" data-variant="small" data-shape="modern" onclick={() => triggerHat(false)}>Cl</button>
-    <button type="button" data-variant="small" data-shape="modern" onclick={() => triggerHat(true)}>Op</button>
+<div class="module-box">
+<Head title="Metallic Hats" hasDot={true}>
+    <button type="button" data-variant="icon-mini" data-shape="modern" onclick={() => triggerHat(false)}><HitOne/></button>
+    <button type="button" data-variant="icon-mini" data-shape="modern" onclick={() => triggerHat(true)}><Hittwo/></button>
   </Head>
 
   <div class="svg-container relative">
@@ -138,4 +139,4 @@
       />
     </div>
   </div>
-</PrefittedBox>
+</div>

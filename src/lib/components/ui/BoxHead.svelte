@@ -14,7 +14,7 @@
 <header class="row xbetween ycenter">
 	<span class="box-title">{title}</span>
 	{#if children || hasDot}
-		<div class="row ycenter gap-xs">
+		<div class="row ycenter gap-sm">
 			{#if children}
 				{@render children()}
 			{/if}

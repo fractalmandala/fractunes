@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import { listMidiInputs, type MidiDevice } from "$lib/native/tauriBridge";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
 
   let isExportingMaster = $state(false);
@@ -47,8 +46,8 @@
   }
 </script>
 
-<PrefittedBox span="is-3-wide">
-  <Head title="Stems & Buffer" hasDot={true}>
+<div class="module-box">
+<Head title="Stems & Buffer" hasDot={true}>
     <span class="text-xs text-theme mono">WAV 16-bit</span>
   </Head>
 
@@ -100,4 +99,4 @@
     </span>
     <span class="text-muted text-xs mono">44.1kHz Studio</span>
   </div>
-</PrefittedBox>
+</div>

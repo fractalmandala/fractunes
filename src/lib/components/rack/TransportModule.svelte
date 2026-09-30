@@ -3,7 +3,6 @@
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import { SOUNDBANK } from "$lib/audio/presets";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
 
   let canvasEl: HTMLCanvasElement | null = $state(null);
@@ -53,8 +52,8 @@
   });
 </script>
 
-<PrefittedBox span="is-6-wide">
-  <Head title="Fractunes Soundbank" hasDot={true}>
+<div class="module-box">
+<Head title="Fractunes Soundbank" hasDot={true}>
     <div class="row ycenter gap-3">
       <select
         id="presetSelect"
@@ -115,5 +114,5 @@
       </span>
     </div>
   </div>
-</PrefittedBox>
 
+</div>

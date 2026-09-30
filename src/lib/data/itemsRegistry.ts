@@ -59,28 +59,35 @@ export const registryItems: RegistryItem[] = [
 	{
 		name: "delay",
 		id: 8,
-		defX: 4,
+		defX: 3,
 		defY: 2,
 		status: true
 	},
 	{
 		name: "reverb",
 		id: 9,
-		defX: 4,
+		defX: 3,
 		defY: 2,
 		status: true
 	},
 	{
-		name: "modulator",
+		name: "modulatorA",
 		id: 10,
-		defX: 4,
+		defX: 3,
+		defY: 2,
+		status: true
+	},
+	{
+		name: "modulatorB",
+		id: 11,
+		defX: 3,
 		defY: 2,
 		status: true
 	},
 	{
 		name: "sequencer",
-		id: 11,
-		defX: 4,
+		id: 12,
+		defX: 12,
 		defY: 2,
 		status: true
 	}

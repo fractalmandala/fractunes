@@ -1,14 +1,13 @@
 <script lang="ts">
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import ExpandableBox from "../ExpandableBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
 
   const rowLabels = ["Kick", "Bass", "Hat Cl", "Hat Op"];
 </script>
 
-<ExpandableBox centered span="is-6-wide">
-  <Head title="KBBB Sequencer" hasDot={true}>
+<div class="module-box">
+<Head title="KBBB Sequencer" hasDot={true}>
     <span class="text-secondary text-xs mono">
       16-Step Rolling Gal-Op
     </span>
@@ -114,4 +113,4 @@
       />
     </div>
   </div>
-</ExpandableBox>
+</div>

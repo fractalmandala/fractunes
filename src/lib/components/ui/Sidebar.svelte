@@ -114,8 +114,8 @@
 	type="button"
 	data-variant="icon"
 	onclick={() => onSettingsClick?.()}
-	title="Settings"
-	aria-label="Settings"
+	title="Settings (⌘K)"
+	aria-label="Settings (⌘K)"
 >
 	<Settings />
 </button>	

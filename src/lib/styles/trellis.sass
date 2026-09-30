@@ -4,10 +4,8 @@
 	min-height: 100%
 
 .snapgrid-item
-	box-sizing: border-box
 	user-select: none
 	touch-action: none
-	transition: width 320ms cubic-bezier(0.16, 1, 0.3, 1), height 320ms cubic-bezier(0.16, 1, 0.3, 1) !important
 	&[data-dragging='true']
 		transition: none !important
 		z-index: 50 !important
@@ -25,28 +23,22 @@
 	position: absolute
 	z-index: 15
 	touch-action: none
-	opacity: 0.55
+	opacity: 0
 	transition: opacity var(--speed2) var(--transout2), transform var(--speed2) var(--transout2)
-	&:hover
-		opacity: 1
 	&--se
 		bottom: 2px
 		right: 2px
-		width: 20px
-		height: 20px
+		width: 2px
+		height: 2px
 		cursor: nwse-resize
-		background: repeating-linear-gradient(-45deg, transparent, transparent 2px, var(--theme-color-sub) 2px, var(--theme-color-sub) 4px)
-		border-right: 2px solid var(--theme-color)
-		border-bottom: 2px solid var(--theme-color)
+		border-right: 1px solid var(--theme-color)
+		border-bottom: 1px solid var(--theme-color)
 		border-bottom-right-radius: var(--radius-sm)
-		&:hover
-			opacity: 1
-			box-shadow: 0 0 8px var(--theme-color-glow)
 	&--s
 		bottom: 1px
-		left: calc(50% - 18px)
-		width: 36px
-		height: 8px
+		left: calc(50% - 2px)
+		width: 2px
+		height: 2px
 		cursor: ns-resize
 		background: var(--bg-button)
 		border: 1px solid var(--border-strong)
@@ -54,9 +46,9 @@
 		&::after
 			content: ''
 			position: absolute
-			left: calc(50% - 10px)
+			left: calc(50% - 2px)
 			top: 2px
-			width: 20px
+			width: 2px
 			height: 2px
 			background: var(--text-muted)
 			border-radius: 1px
@@ -66,9 +58,9 @@
 				background: var(--theme-color)
 	&--e
 		right: 1px
-		top: calc(50% - 18px)
-		width: 8px
-		height: 36px
+		top: calc(50% - 2px)
+		width: 2px
+		height: 2px
 		cursor: ew-resize
 		background: var(--bg-button)
 		border: 1px solid var(--border-strong)
@@ -76,7 +68,7 @@
 		&::after
 			content: ''
 			position: absolute
-			top: calc(50% - 10px)
+			top: calc(50% - 2px)
 			left: 2px
 			width: 2px
 			height: 20px
@@ -88,7 +80,7 @@
 				background: var(--theme-color)
 
 .snapgrid-item:hover .snapgrid-resize-handle
-	opacity: 0.9
+	opacity: 0
 
 .sampling-workspace
 	position: relative
@@ -167,7 +159,7 @@
 	display: flex
 	flex-direction: row
 	align-items: center
-	justify-content: space-between
+	justify-content: flex-end
 	height: 22px
 	padding: 0 var(--space-xs)
 	border-bottom: 1px solid var(--border-subtle)
@@ -232,3 +224,42 @@
 	border-radius: 1px
 	min-height: 3px
 	transition: height var(--speed1) ease, background-color var(--speed1) ease
+
+.rack-grid-container
+	width: 100%
+	height: 100%
+	flex: 1
+	min-height: 0
+	position: relative
+	&:not(.is-dragging) .snapgrid-item
+		transition: none !important
+		transform: none !important
+
+.rack-tile-wrapper
+	width: 100%
+	height: 100%
+	position: relative
+	background: var(--card-bg)
+	border: 1px solid var(--card-border)
+	border-radius: var(--radius-sm)
+	padding: 0
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	overflow: hidden
+	transition: box-shadow var(--motionout2)
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.64)
+	&:hover
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0)
+	header
+		cursor: grab
+		user-select: none
+		&:active
+			cursor: grabbing
+	&.is-dragging
+		border-color: var(--theme-color) !important
+		box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.8), 0 0 0 1.5px var(--theme-color) !important
+		cursor: grabbing
+	&.is-resizing
+		border-color: var(--theme-color) !important
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 0 1.5px var(--theme-color) !important

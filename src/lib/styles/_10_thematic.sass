@@ -1,0 +1,82 @@
+.preview
+	--bg:     #141414
+	--tile:   #191919
+	--well:   #0c0c0c
+	--btn:    #1d1d1d
+	--fg:     #ececec
+	--fg2:    #9a9a9a
+	--fg3:    #606060
+	--accent: #2c9a1d
+	--hi: rgba(255,255,255,.04)
+	--lo: rgba(0,0,0,.68)
+	--d:  1.65
+	--edge: var(--hi)
+	--glow: color-mix(in srgb, var(--accent) 80%, transparent)
+	--glow2: color-mix(in srgb, var(--accent) 35%, transparent)
+	--onacc: color-mix(in srgb, var(--accent) 12%, #000)
+	--sh-raised: calc(10px*var(--d)) calc(10px*var(--d)) calc(26px*var(--d)) var(--lo),
+	calc(-8px*var(--d)) calc(-8px*var(--d)) calc(22px*var(--d)) var(--hi)
+	--sh-btn: calc(5px*var(--d)) calc(5px*var(--d)) calc(12px*var(--d)) var(--lo),
+	calc(-4px*var(--d)) calc(-4px*var(--d)) calc(10px*var(--d)) var(--hi)
+	--sh-btn-s: calc(3px*var(--d)) calc(3px*var(--d)) calc(7px*var(--d)) var(--lo),
+	calc(-2px*var(--d)) calc(-2px*var(--d)) calc(6px*var(--d)) var(--hi)
+	--sh-btn-hover: calc(7px*var(--d)) calc(7px*var(--d)) calc(16px*var(--d)) var(--lo),
+	calc(-5px*var(--d)) calc(-5px*var(--d)) calc(13px*var(--d)) var(--hi)
+	--sh-press: inset calc(4px*var(--d)) calc(4px*var(--d)) calc(10px*var(--d)) var(--lo),
+	inset calc(-3px*var(--d)) calc(-3px*var(--d)) calc(8px*var(--d)) var(--hi)
+	--sh-well: inset calc(7px*var(--d)) calc(7px*var(--d)) calc(16px*var(--d)) var(--lo),
+	inset calc(-5px*var(--d)) calc(-5px*var(--d)) calc(12px*var(--d)) var(--hi)
+	--sh-cast: calc(-16px*var(--d)) 0 calc(36px*var(--d)) var(--lo)
+
+.th-app
+	background: var(--bg)
+
+.th-tile
+	background: var(--tile)
+	box-shadow: var(--sh-raised), inset 1px 1px 0 var(--edge)
+
+.th-well
+	background: var(--well)
+	box-shadow: var(--sh-well)
+
+.th-stage
+	background: var(--well)
+	box-shadow: var(--sh-well)
+	overflow: hidden
+
+.th-shell
+	transition: transform .55s cubic-bezier(.3,.9,.3,1), border-radius .55s
+
+.th-drawer-open .th-shell
+	transform: translateX(196px) scale(.94)
+	border-radius: 22px
+	box-shadow: var(--sh-cast)
+
+.th-modal-open .th-shell
+	transform: scale(.95)
+	filter: brightness(.55)
+
+.th-btn
+	background: var(--btn)
+	color: var(--fg2)
+	box-shadow: var(--sh-btn), inset 1px 1px 0 var(--edge)
+
+.th-btn:hover
+	background: color-mix(in srgb, var(--btn), #fff 5%)
+	color: var(--fg)
+	box-shadow: var(--sh-btn-hover), inset 1px 1px 0 var(--edge)
+
+.th-btn:active
+	background: color-mix(in srgb, var(--btn), #000 10%)
+	box-shadow: var(--sh-press)
+	transform: translateY(.5px)
+
+.th-btn.on
+	color: var(--accent)
+	box-shadow: var(--sh-press), 0 0 14px var(--glow2)
+.th-btn:focus-visible
+	outline: 2px solid var(--accent)
+	outline-offset: 3px
+.th-btn:disabled
+	opacity: .38
+	box-shadow: none

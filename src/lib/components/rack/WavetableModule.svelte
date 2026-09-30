@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { synthStore } from "$lib/stores/synthStore.svelte";
   import ParamDrag from "$lib/components/ParamDrag.svelte";
-	import PrefittedBox from "../PrefittedBox.svelte";
   import Head from "$lib/components/ui/BoxHead.svelte";
 
   const tablesList = [
@@ -99,8 +98,8 @@
   });
 </script>
 
-<PrefittedBox span="is-3-wide">
-  <Head title="Wavetable Synth" hasDot={true}>
+<div class="module-box">
+<Head title="Wavetable Synth" hasDot={true}>
     <button
       type="button"
       data-variant="small"
@@ -181,5 +180,4 @@
         }}
       />
     </div>
-  </div>
-</PrefittedBox>
+  </div></div>
